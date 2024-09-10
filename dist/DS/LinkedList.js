@@ -11,10 +11,10 @@ class LinkedList {
     }
     print() {
         const array = new Array();
-        array.push(this.head.getValue());
+        array.push(this.head.value);
         for (let i = 1; i <= this.length; i++) {
-            this.head = this.head.getNext();
-            array.push(this.head.getValue());
+            this.head = this.head.next;
+            array.push(this.head.value);
         }
         return array.getData();
     }
@@ -24,8 +24,8 @@ class LinkedList {
             this.head = node;
         }
         else {
-            this.tail.setNext(node);
-            this.tail = this.tail.getNext();
+            this.tail.next = node;
+            this.tail = this.tail.next;
         }
         this.length++;
         return;
@@ -39,10 +39,10 @@ class LinkedList {
         // pointer to Linked List head
         let nodes = this.head;
         for (let i = 0; i < index - 1; i++) {
-            nodes = nodes.getNext();
+            nodes = nodes.next;
         }
-        node.setNext(nodes.getNext());
-        nodes.setNext(node);
+        node.next = nodes.next;
+        nodes.next = node;
     }
     delete() { }
     reverse() { }
